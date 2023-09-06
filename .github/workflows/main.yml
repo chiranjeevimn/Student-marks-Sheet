@@ -1,4 +1,5 @@
-name: My Custom Workflow
+name: Java Build and Test
+
 on:
   push:
     branches:
@@ -7,15 +8,17 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-
+    
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    - name: Checkout code
+      uses: actions/checkout@v2
 
-      - name: Build and test
-        run: |
-          # Add your build and test commands here
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: '11' # Adjust the Java version as needed
 
-      - name: Deploy
-        run: |
-          # Add deployment commands here
+    - name: Build and test
+      run: |
+        javac MarkCal.java  
+        java MarkCal       
