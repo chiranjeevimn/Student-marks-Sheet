@@ -1,0 +1,21 @@
+name: My Custom Workflow
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Build and test
+        run: |
+          # Add your build and test commands here
+
+      - name: Deploy
+        run: |
+          # Add deployment commands here
